@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import TheemToggle from "../../TheemToggle";
 import { FaCircleUser } from "react-icons/fa6";
 import logo from "../../../assets/logo.png";
+import ReactTooltip from "react-tooltip";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   // const links = (
@@ -165,17 +166,19 @@ const Header = () => {
       <div className="navbar-end">
         <div className=" mr-2">
           {user && user?.email ? (
-            <div className="relative h-full hover:scale-90 group w-fit">
+            <div className="relative h-full group w-fit">
               <Link to="/">
                 <img
                   src={user?.photoURL}
                   alt="User"
                   className="w-10 h-10 sm:w-10 sm:h-10 rounded-full mt-2 mx-auto mb-2 border-2 solid border-green-400"
+                  data-tip={user?.displayName}
+                  data-for="user-tooltip"
                 />
               </Link>
-              <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full h-6 -mb-[.5rem] w-36  bg-[#b5eade] text-gray-700 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg z-50">
-                <p className="text-center font-bold">{user.displayName}</p>
-              </div>
+              <ReactTooltip id="user-tooltip" place="top" effect="solid">
+                {user?.displayName}
+              </ReactTooltip>
             </div>
           ) : (
             <div className="text-[2.7rem] text-[#faa2a0]">
