@@ -12,6 +12,7 @@ import MyProfile from "../components/MyProfile.jsx";
 import AddEquipment from "../components/PrivateRoutComponent/AddEquipment.jsx";
 import UpdateEquipment from "../components/PrivateRoutComponent/UpdateEquipment.jsx";
 import Category from "../components/Category.jsx";
+import AllEquipment from "../components/AllEquipment.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "signin",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "allEquipent",
+        element: <AllEquipment></AllEquipment>,
+        loader: () => fetch("http://localhost:5000/equipment"),
       },
       {
         path: "category",

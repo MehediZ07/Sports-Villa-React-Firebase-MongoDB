@@ -67,7 +67,7 @@ export default function UpdateEquipment() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-full sm:max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-md"
+      className="max-w-full sm:max-w-4xl mx-auto p-6 bg-base-100 rounded-lg border-4 solid border-gray-200 mb-10"
     >
       <h2 className="text-2xl font-bold mb-6">Product Information</h2>
 
@@ -111,9 +111,9 @@ export default function UpdateEquipment() {
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Category</option>
-            <option value="cricket">Cricket</option>
-            <option value="football">Football</option>
-            <option value="others">Others</option>
+            <option value="Cricket">Cricket</option>
+            <option value="Football">Football</option>
+            <option value="Others">Others</option>
           </select>
         </div>
         {/* Price */}

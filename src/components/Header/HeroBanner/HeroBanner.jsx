@@ -16,7 +16,7 @@ export default function HeroBanner() {
     return () => clearInterval(intervalId);
   }, [currentSlide]);
   return (
-    <div className="carousel w-full h-96">
+    <div className="carousel w-full h-96 ">
       {/* Slide 1 */}
       <div
         className={`carousel-item relative w-full ${
