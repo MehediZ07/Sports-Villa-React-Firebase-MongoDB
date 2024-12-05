@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-export default function Equipment({ coffee, loadedCoffees, setLoadedCoffees }) {
-  const { _id } = coffee;
+export default function Equipment({
+  equipment,
+  loadedEquipment,
+  setLoadedEquipment,
+}) {
+  const { _id } = equipment;
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -27,11 +31,11 @@ export default function Equipment({ coffee, loadedCoffees, setLoadedCoffees }) {
                 icon: "success",
               });
 
-              // update the loaded coffee state
-              const remainingCoffees = loadedCoffees.filter(
-                (coffee) => coffee._id !== _id
+              // update the loaded equipment state
+              const remainingEquipments = loadedEquipment.filter(
+                (equipment) => equipment._id !== _id
               );
-              setLoadedCoffees(remainingCoffees);
+              setLoadedEquipment(remainingEquipments);
             }
           });
       }
@@ -40,17 +44,17 @@ export default function Equipment({ coffee, loadedCoffees, setLoadedCoffees }) {
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl">
       <figure>
-        <img src={coffee?.photo} alt="coffee" />
+        <img src={equipment?.photo} alt="equipment" />
       </figure>
       <div className="flex w-full m-4 items-center justify-between">
         <div>
-          <p>Name: {coffee?.name}</p>
-          <p>Chef: {coffee?.chef}</p>
-          <p>Taste: {coffee?.category}</p>
+          <p>Name: {equipment?.name}</p>
+          <p>Chef: {equipment?.chef}</p>
+          <p>Taste: {equipment?.category}</p>
         </div>
         <div className="card-actions justify-end join join-vertical">
           <button className="btn join-item">View</button>
-          <Link to={`/updateCoffee/${_id}`}>
+          <Link to={`/updateEquipment/${_id}`}>
             <button className="btn join-item">Edit</button>
           </Link>
           <button
