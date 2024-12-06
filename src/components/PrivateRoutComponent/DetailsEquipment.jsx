@@ -49,21 +49,21 @@ export default function DetailsEquipment() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-md">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Image Section */}
         <div className="md:w-1/2 flex justify-center">
           <img
             src={equipment.photo}
             alt={equipment.itemName}
-            className="w-full h-auto rounded-lg shadow-md"
+            className="w-full h-full rounded-lg shadow-md"
           />
         </div>
 
         {/* Details Section */}
         <div className="md:w-1/2">
           <h1 className="text-2xl font-bold mb-4">{equipment.itemName}</h1>
-          <p className="text-gray-700 mb-4">{equipment.description}</p>
+          <p className="text-gray-500 mb-4">{equipment.description}</p>
 
           <div className="mb-4">
             <span className="font-bold">Category:</span> {equipment.category}
