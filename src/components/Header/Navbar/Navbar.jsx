@@ -36,6 +36,10 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const filteredEquipment = cart.filter(
+    (equipment) => equipment.email === user.email
+  );
+
   if (loaging) return <span className="loading loading-bars loading-lg"></span>;
 
   const links = (
@@ -203,7 +207,7 @@ const Header = () => {
             >
               <div className="relative">
                 <span className=" absolute translate-x-2 -top-[1.1rem] text-base ml-1 badge ">
-                  {cart.length}
+                  {filteredEquipment.length}
                 </span>
                 <div className="text-3xl">
                   <IoMdCart />

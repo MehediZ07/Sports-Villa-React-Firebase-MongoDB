@@ -98,14 +98,14 @@ export default function CartCard({ item }) {
               >
                 <FaRegMinusSquare />
               </button>
-              <button
+              {/* <button
                 onClick={() => {
                   handleDelete(item._id);
                 }}
                 className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 "
               >
                 <MdDeleteForever />
-              </button>
+              </button> */}
             </Link>
           </div>
 
