@@ -15,6 +15,7 @@ import Category from "../components/Category.jsx";
 import AllEquipment from "../components/AllEquipment.jsx";
 import MyEquipment from "../components/PrivateRoutComponent/MyEquipment.jsx";
 import DetailsEquipment from "../components/PrivateRoutComponent/DetailsEquipment.jsx";
+import AddCart from "../components/PrivateRoutComponent/AddCart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,27 +27,32 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch("http://localhost:5000/equipment"),
       },
+
       {
-        path: "addCoffee",
+        path: "addEquipment",
         element: (
           <PrivateRoute>
-            <AddCoffee></AddCoffee>
+            <AddEquipment></AddEquipment>
           </PrivateRoute>
         ),
       },
       {
-        path: "addEquipment",
-        element: <AddEquipment></AddEquipment>,
-      },
-      {
         path: "updateEquipment/:id",
-        element: <UpdateEquipment></UpdateEquipment>,
+        element: (
+          <PrivateRoute>
+            <UpdateEquipment></UpdateEquipment>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/equipment/${params.id}`),
       },
       {
         path: "detailsEquipment/:id",
-        element: <DetailsEquipment></DetailsEquipment>,
+        element: (
+          <PrivateRoute>
+            <DetailsEquipment></DetailsEquipment>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/equipment/${params.id}`),
       },
@@ -57,7 +63,20 @@ const router = createBrowserRouter([
       },
       {
         path: "myEquipent",
-        element: <MyEquipment></MyEquipment>,
+        element: (
+          <PrivateRoute>
+            <MyEquipment></MyEquipment>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/equipment"),
+      },
+      {
+        path: "addCart",
+        element: (
+          <PrivateRoute>
+            <AddCart></AddCart>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/equipment"),
       },
       {
@@ -78,7 +97,11 @@ const router = createBrowserRouter([
       },
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "users",

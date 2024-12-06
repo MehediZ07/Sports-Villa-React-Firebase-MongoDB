@@ -1,35 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import TheemToggle from "../../TheemToggle";
 import { FaCircleUser } from "react-icons/fa6";
 import logo from "../../../assets/logo.png";
 import Headroom from "react-headroom";
-
+import { IoMdCart } from "react-icons/io";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  // const links = (
-  //   <>
-  //     <li>
-  //       <NavLink to="/">Home</NavLink>
-  //     </li>
-  //     {/* <li>
-  //       <NavLink to="/addCoffee">Add Coffee</NavLink>
-  //     </li> */}
-  //     <li>
-  //       <NavLink to="/addEquipment">Add Equipment</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to="/signin">Sign In</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to="/users">Users</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to="/myProfile">My Profile</NavLink>
-  //     </li>
-  //   </>
-  // );
+  const [loaging, setLoading] = useState(true);
+  const [cart, setCart] = useState({});
+
+  useEffect(() => {
+    const fetchData = () => {
+      fetch("http://localhost:5000/addCart")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch");
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setCart(json);
+          console.log(json);
+          setLoading(false);
+        })
+        // eslint-disable-next-line no-unused-vars
+        .catch((err) => {
+          setLoading(false);
+        });
+    };
+
+    fetchData();
+    const interval = setInterval(fetchData, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loaging) return <span className="loading loading-bars loading-lg"></span>;
 
   const links = (
     <>
@@ -149,7 +156,7 @@ const Header = () => {
 
   return (
     <Headroom style={{ zIndex: 1000 }}>
-      <div className="navbar bg-base-100 max-w-7xl mx-auto bg-opacity-50 backdrop-blur-sm  bg-transparent ">
+      <div className="navbar p-0 bg-base-100 max-w-7xl mx-auto bg-opacity-50 backdrop-blur-sm  bg-transparent ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -189,6 +196,21 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          <div className="mr-4 mt-2">
+            <Link
+              to="/addCart"
+              className="p-1  cursor-pointer rounded-full text-xl "
+            >
+              <div className="relative">
+                <span className=" absolute translate-x-2 -top-[1.1rem] text-base ml-1 badge ">
+                  {cart.length}
+                </span>
+                <div className="text-3xl">
+                  <IoMdCart />
+                </div>
+              </div>
+            </Link>
+          </div>
           <div className=" mr-2">
             {user && user?.email ? (
               <div className="relative h-full hover:scale-90 group w-fit">

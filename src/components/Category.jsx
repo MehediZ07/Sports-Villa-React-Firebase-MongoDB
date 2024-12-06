@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Category({ equipments, category }) {
   const categoryEquipment = equipments.filter(
@@ -21,14 +22,19 @@ export default function Category({ equipments, category }) {
           <h3 className="mt-4 text-sm font-medium text-gray-500">
             {equipment.itemName}
           </h3>
-          <div className="flex items-center justify-center space-x-1 text-yellow-600 py-2 px-3 rounded-md mb-2 text-center">
+          <div className="flex items-center justify-center space-x-1 text-yellow-600 py-2 px-3 rounded-md  text-center">
             {[...Array(Math.floor(equipment.rating))].map((_, i) => (
               <span key={i}>⭐</span>
             ))}
           </div>
-          <p className="text-lg font-semibold text-gray-500">
+          <p className="text-lg mb-2 font-semibold text-gray-500">
             ${equipment.price}
           </p>
+          <Link to={`/detailsEquipment/${equipment._id}`}>
+            <span className="font-base text-sm px-2 py-1 rounded-full border-2 solid">
+              View More
+            </span>
+          </Link>
         </div>
       ))}
     </div>

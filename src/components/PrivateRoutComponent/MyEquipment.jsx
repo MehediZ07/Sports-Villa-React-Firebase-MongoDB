@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEdit } from "react-icons/fa";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import ReactStars from "react-rating-stars-component";
 export default function MyEquipment() {
   const myEquipment = useLoaderData();
   const { user, loading } = useContext(AuthContext);
@@ -62,7 +63,7 @@ export default function MyEquipment() {
           My Equipment
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:max-w-6xl mx-auto max-w-[95%] ">
         {filteredEquipment.map((equipment) => (
           <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent">
             {/* Image */}
@@ -85,12 +86,19 @@ export default function MyEquipment() {
               </div>
 
               {/* Rating */}
-              <div className="flex items-center space-x-1 bg-yellow-100/50 text-yellow-600 py-2 px-3 rounded-md mb-2">
-                <span className="font-semibold text-gray-700">Ratting</span>
-                {[...Array(Math.floor(equipment.rating))].map((_, i) => (
-                  <span key={i}>⭐</span>
-                ))}
-              </div>
+              <h2 className="my-3 font-semibold flex items-center justify-start">
+                <span className="mr-2 font-semibold">Rating: </span>
+                <ReactStars
+                  count={5}
+                  size={24}
+                  isHalf={true}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffcc26"
+                  value={equipment.rating}
+                />
+              </h2>
 
               <p className="text-2xl font-bold text-green-600 mb-3">
                 ${equipment.price}

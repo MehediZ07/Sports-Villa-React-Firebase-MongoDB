@@ -54,7 +54,7 @@ export default function Equipment({
   //   });
   // };
   return (
-    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent h-fit">
+    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent h-fit w-64 ">
       {/* Image */}
       <img
         className="w-full h-32 object-cover rounded-t-lg"
@@ -93,7 +93,7 @@ export default function Equipment({
           </li>
           <li>
             <Link to={`/detailsEquipment/${equipment._id}`}>
-              <span className="font-medium px-2 text-white py-1 rounded-full bg-gradient-to-r from-[#00e0a057] via-[#00afe052]  to-[#1bb3ff51]">
+              <span className="font-medium -ml-1 px-2 py-1 rounded-full border-2 solid">
                 View More
               </span>
             </Link>
