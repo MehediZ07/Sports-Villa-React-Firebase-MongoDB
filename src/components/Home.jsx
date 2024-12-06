@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Coffee from "./Coffee";
 import HeroBanner from "./Header/HeroBanner/HeroBanner";
@@ -8,6 +8,7 @@ import ourProduct from "../assets/Our Product.jpeg";
 
 import OurAthletes from "./OurAthletes";
 import Category from "./Category";
+import OurPartner from "./OurPartner";
 
 const Home = () => {
   const equipments = useLoaderData();
@@ -29,6 +30,10 @@ const Home = () => {
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 1 ? 3 : currentSlide - 1);
   };
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 2500);
+    return () => clearInterval(intervalId);
+  }, [currentSlide]);
 
   const categorys = [
     {
@@ -129,13 +134,13 @@ const Home = () => {
           <div className="flex gap-2 mx-auto absolute top-[32rem] sm:top-24 md:top-40 right-5 justify-center">
             <button
               onClick={prevSlide}
-              className="px-4  text-2xl bg-gray-200 rounded-lg shadow hover:bg-gray-300"
+              className="px-4  text-2xl bg-gradient-to-l from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg shadow "
             >
               ←
             </button>
             <button
               onClick={nextSlide}
-              className="px-4  text-3xl bg-gray-200 rounded-lg shadow hover:bg-gray-300"
+              className="px-4  text-3xl bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg shadow "
             >
               →
             </button>
@@ -155,7 +160,7 @@ const Home = () => {
             </div>
 
             {/* Content Section */}
-            <div className="flex flex-col lg:flex-row items-center justify-between bg-blue-500 text-white px-8 py-10 ">
+            <div className="flex flex-col lg:flex-row items-center justify-between bg-[#00afe088] text-white px-8 py-10 ">
               {/* Left Section */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full lg:w-1/2">
                 {/* Card 1 */}
@@ -211,6 +216,7 @@ const Home = () => {
           </div>
         </div>
         <OurAthletes></OurAthletes>
+        <OurPartner></OurPartner>
       </div>
     </div>
   );

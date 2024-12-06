@@ -54,7 +54,7 @@ export default function Equipment({
   //   });
   // };
   return (
-    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all hover:scale-[1.015] duration-300 hover:shadow-lg bg-transparent">
+    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent">
       {/* Image */}
       <img
         className="w-full h-32 object-cover rounded-t-lg"
@@ -81,14 +81,14 @@ export default function Equipment({
         </div>
 
         <p className="text-2xl font-bold text-green-600 mb-3">${price}</p>
-        <ul className="text-sm text-gray-600 space-y-2 mb-2">
+        <ul className="text-sm text-gray-500 space-y-2 mb-2">
           <li>
-            <span className="font-medium text-gray-800">Category:</span>{" "}
+            <span className="font-medium text-gray-400">Category:</span>{" "}
             {category}
           </li>
 
           <li>
-            <span className="font-medium text-gray-800">Stock:</span>{" "}
+            <span className="font-medium text-gray-400">Stock:</span>{" "}
             {stockStatus} items left
           </li>
           <li>

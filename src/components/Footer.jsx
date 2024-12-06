@@ -21,14 +21,12 @@ export default function Footer() {
           <div className="mt-4 space-y-1">
             <div className="flex items-center space-x-2">
               <span className="material-icons text-gray-600">
-                calendar_today
+                Week-day Open
               </span>
               <span>Mon - Fri: 9AM - 10PM</span>
             </div>
             <div className="flex items-center space-x-2">
-              <span className="material-icons text-gray-600">
-                calendar_today
-              </span>
+              <span className="material-icons text-gray-600">Weekend Open</span>
               <span>Sat-Sun: 10AM - 8PM</span>
             </div>
           </div>

@@ -18,7 +18,7 @@ export default function Category({ equipments, category }) {
             alt="Sport bottle"
             className="w-full h-48 object-cover rounded-lg"
           />
-          <h3 className="mt-4 text-sm font-medium text-gray-800">
+          <h3 className="mt-4 text-sm font-medium text-gray-500">
             {equipment.itemName}
           </h3>
           <div className="flex items-center justify-center space-x-1 text-yellow-600 py-2 px-3 rounded-md mb-2 text-center">
@@ -26,7 +26,7 @@ export default function Category({ equipments, category }) {
               <span key={i}>⭐</span>
             ))}
           </div>
-          <p className="text-lg font-semibold text-gray-800">
+          <p className="text-lg font-semibold text-gray-500">
             ${equipment.price}
           </p>
         </div>
