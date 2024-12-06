@@ -58,6 +58,50 @@ const Header = () => {
       <li>
         <NavLink
           className="navlink ml-1"
+          to="/allEquipent"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  fontWeight: "600",
+                  color: "#fff",
+                  background:
+                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                }
+              : {
+                  fontWeight: "400",
+                  backgroundColor: "#ffffffa0",
+                  color: "#374151",
+                }
+          }
+        >
+          All Equipment
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="navlink ml-1"
+          to="/myEquipent"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  fontWeight: "600",
+                  color: "#fff",
+                  background:
+                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                }
+              : {
+                  fontWeight: "400",
+                  backgroundColor: "#ffffffa0",
+                  color: "#374151",
+                }
+          }
+        >
+          My Equipment
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="navlink ml-1"
           to="/addEquipment"
           style={({ isActive }) =>
             isActive
@@ -77,28 +121,7 @@ const Header = () => {
           Add Equipment
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className="navlink ml-1"
-          to="/users"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  fontWeight: "600",
-                  color: "#fff",
-                  background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
-                }
-              : {
-                  fontWeight: "400",
-                  backgroundColor: "#ffffffa0",
-                  color: "#374151",
-                }
-          }
-        >
-          Users
-        </NavLink>
-      </li>
+
       <li>
         <NavLink
           className="navlink ml-1"

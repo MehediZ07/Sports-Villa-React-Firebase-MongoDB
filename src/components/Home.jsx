@@ -134,13 +134,13 @@ const Home = () => {
           <div className="flex gap-2 mx-auto absolute top-[32rem] sm:top-24 md:top-40 right-5 justify-center">
             <button
               onClick={prevSlide}
-              className="px-4  text-2xl bg-gradient-to-l from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg shadow "
+              className="px-4  text-3xl bg-gradient-to-l from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg shadow text-white font-bold pb-1"
             >
               ←
             </button>
             <button
               onClick={nextSlide}
-              className="px-4  text-3xl bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg shadow "
+              className="px-4  text-3xl bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] rounded-lg text-white font-bold  pb-1 shadow "
             >
               →
             </button>
@@ -148,7 +148,7 @@ const Home = () => {
         </div>
 
         <div>
-          <div className=" max-w-[98%] overflow-hidden mx-auto mt-12">
+          <div className=" max-w-[98%] overflow-hidden mx-auto my-16">
             {/* Top Section with Heading */}
             <div className="px-8 py-6">
               <h2 className="text-3xl font-bold">

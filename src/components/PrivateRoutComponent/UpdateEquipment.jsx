@@ -80,7 +80,7 @@ export default function UpdateEquipment() {
           <input
             type="text"
             name="image"
-            value={photo}
+            defaultValue={photo}
             placeholder="Enter image URL"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -94,7 +94,7 @@ export default function UpdateEquipment() {
           <input
             type="text"
             name="itemName"
-            value={itemName}
+            defaultValue={itemName}
             placeholder="Enter item name"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -107,7 +107,7 @@ export default function UpdateEquipment() {
           </label>
           <select
             name="category"
-            value={category}
+            defaultValue={category}
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Category</option>
@@ -124,7 +124,7 @@ export default function UpdateEquipment() {
           <input
             type="number"
             name="price"
-            value={price}
+            defaultValue={price}
             placeholder="Enter price"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -137,7 +137,7 @@ export default function UpdateEquipment() {
           </label>
           <select
             name="rating"
-            value={rating}
+            defaultValue={rating}
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Rating</option>
@@ -157,7 +157,7 @@ export default function UpdateEquipment() {
           <input
             type="text"
             name="customization"
-            value={customization}
+            defaultValue={customization}
             placeholder="Enter customization options"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -171,7 +171,7 @@ export default function UpdateEquipment() {
           <input
             type="text"
             name="processingTime"
-            value={processingTime}
+            defaultValue={processingTime}
             placeholder="Enter processing time"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -185,7 +185,7 @@ export default function UpdateEquipment() {
           <input
             type="number"
             name="stockStatus"
-            value={stockStatus}
+            defaultValue={stockStatus}
             placeholder="Enter stock status"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -198,7 +198,7 @@ export default function UpdateEquipment() {
           </label>
           <textarea
             name="description"
-            value={description}
+            defaultValue={description}
             placeholder="Enter product description"
             rows="4"
             className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"

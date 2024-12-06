@@ -13,6 +13,8 @@ import AddEquipment from "../components/PrivateRoutComponent/AddEquipment.jsx";
 import UpdateEquipment from "../components/PrivateRoutComponent/UpdateEquipment.jsx";
 import Category from "../components/Category.jsx";
 import AllEquipment from "../components/AllEquipment.jsx";
+import MyEquipment from "../components/PrivateRoutComponent/MyEquipment.jsx";
+import DetailsEquipment from "../components/PrivateRoutComponent/DetailsEquipment.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,8 +45,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/equipment/${params.id}`),
       },
       {
-        path: "signin",
-        element: <SignIn></SignIn>,
+        path: "detailsEquipment/:id",
+        element: <DetailsEquipment></DetailsEquipment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/equipment/${params.id}`),
       },
       {
         path: "allEquipent",
@@ -52,8 +56,17 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/equipment"),
       },
       {
+        path: "myEquipent",
+        element: <MyEquipment></MyEquipment>,
+        loader: () => fetch("http://localhost:5000/equipment"),
+      },
+      {
         path: "category",
         element: <Category></Category>,
+      },
+      {
+        path: "signin",
+        element: <SignIn></SignIn>,
       },
       {
         path: "signup",

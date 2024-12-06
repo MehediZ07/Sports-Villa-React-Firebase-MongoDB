@@ -24,7 +24,7 @@ export default function OurPartner() {
 
   if (loaging) return <span className="loading loading-bars loading-lg"></span>;
   return (
-    <div className="partners-section px-6 py-10">
+    <div className="px-6 py-10 w-[99.99%] max-w-7xl mx-auto overflow-hidden">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Our Partner</h2>
       </div>
@@ -39,7 +39,27 @@ export default function OurPartner() {
               return (
                 <img
                   key={partner._id}
-                  className="h-24 ml-10"
+                  className="h-16 ml-24"
+                  src={partner.photo}
+                  alt=""
+                />
+              );
+            })
+          }
+        </Marquee>
+        <Marquee
+          pauseOnHover={true}
+          direction="right"
+          speed={80}
+          className="space-x-0 mt-12"
+        >
+          {
+            // eslint-disable-next-line react/prop-types
+            partners.map((partner) => {
+              return (
+                <img
+                  key={partner._id}
+                  className="h-16 ml-24"
                   src={partner.photo}
                   alt=""
                 />

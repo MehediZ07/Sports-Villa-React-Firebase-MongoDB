@@ -54,7 +54,7 @@ export default function Equipment({
   //   });
   // };
   return (
-    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent">
+    <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent h-fit">
       {/* Image */}
       <img
         className="w-full h-32 object-cover rounded-t-lg"
@@ -65,7 +65,7 @@ export default function Equipment({
       <div className="px-2 py-2 bg-base-100 rounded-b-lg shadow-xl hover:shadow-2xl transform  transition duration-300">
         {/* Product Name and Username */}
         <div className="flex flex-col justify-between gap-4 border-b pb-3 mb-2">
-          <h2 className="font-semibold text-2xl text-center ">{itemName}</h2>
+          <h2 className="font-semibold text-lg h-8 text-center ">{itemName}</h2>
 
           <p className="text-sm text-start w-fit bg-blue-100 text-blue-700 px-2 py-1 rounded-full italic">
             Listed by: {username}
@@ -92,7 +92,7 @@ export default function Equipment({
             {stockStatus} items left
           </li>
           <li>
-            <Link>
+            <Link to={`/detailsEquipment/${equipment._id}`}>
               <span className="font-medium px-2 text-white py-1 rounded-full bg-gradient-to-r from-[#00e0a057] via-[#00afe052]  to-[#1bb3ff51]">
                 View More
               </span>
