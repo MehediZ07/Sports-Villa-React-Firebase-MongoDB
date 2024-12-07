@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Equipment from "./Equipment";
 
@@ -69,7 +69,77 @@ export default function AllEquipment() {
           </li>
         </ul>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto -mt-6 mb-12">
+        <div className="px-3 py-6">
+          <h2 className="text-3xl text-[#23bf9ba7] font-bold">
+            Product show in table formate
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Here, all the product howcase in table below.
+          </p>
+        </div>
+        <div className="overflow-x-auto w-full">
+          <table className="table lg:w-[60rem] xl:w-[73rem]">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Total: {loadedEquipment.length}</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th> View Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loadedEquipment.map((equipment, index) => (
+                <tr key={equipment?._id}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-12 w-12">
+                          <img
+                            src={equipment?.photo}
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{equipment?.itemName}</div>
+                        <div className="badge badge-ghost badge-sm">
+                          Listed By: {equipment?.username}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{equipment?.category}</td>
+                  <td>{equipment?.price}</td>
+                  <td>{equipment?.rating}</td>
+                  <th>
+                    <Link to={`/detailsEquipment/${equipment._id}`}>
+                      <span className="font-medium text-sm -ml-1 p-2 py-1 rounded-full   bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] text-white hover:bg-blue-600/50">
+                        View More
+                      </span>
+                    </Link>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="w-full max-w-[40rem] lg:max-w-[60rem] xl:max-w-[73rem]">
+        <div className="px-5 py-6 text-start">
+          <h2 className="text-3xl text-[#23bf9ba7] font-bold">
+            Product show in card formate
+          </h2>
+          <p className="text-gray-500 mt-2">
+            Here, all the product card howcase below.
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {loadedEquipment.map((equipment) => (
           <Equipment
             equipment={equipment}

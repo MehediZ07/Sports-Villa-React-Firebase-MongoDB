@@ -37,7 +37,7 @@ export default function AddCart() {
   }, []);
 
   const filteredEquipment = cart.filter(
-    (equipment) => equipment.email === user.email
+    (equipment) => equipment.email === user?.email
   );
 
   const cartWithQuantity = Object.values(

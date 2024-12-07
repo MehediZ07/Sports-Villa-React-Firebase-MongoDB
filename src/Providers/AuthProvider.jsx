@@ -19,13 +19,12 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
- 
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   const handleGoogleLogin = (googleProvider) => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider)
+    return signInWithPopup(auth, googleProvider);
   };
-
 
   const createNewUser = (email, password) => {
     setLoading(true);

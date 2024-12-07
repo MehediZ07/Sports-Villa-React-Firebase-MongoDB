@@ -22,7 +22,6 @@ const Header = () => {
         })
         .then((json) => {
           setCart(json);
-          console.log(json);
           setLoading(false);
         })
         // eslint-disable-next-line no-unused-vars
@@ -36,11 +35,11 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const filteredEquipment = cart.filter(
-    (equipment) => equipment.email === user.email
-  );
-
   if (loaging) return <span className="loading loading-bars loading-lg"></span>;
+
+  const filteredEquipment = cart.filter(
+    (equipment) => equipment.email === user?.email
+  );
 
   const links = (
     <>
@@ -207,7 +206,7 @@ const Header = () => {
             >
               <div className="relative">
                 <span className=" absolute translate-x-2 -top-[1.1rem] text-base ml-1 badge ">
-                  {filteredEquipment.length}
+                  {!loaging ? filteredEquipment.length : "0"}
                 </span>
                 <div className="text-3xl">
                   <IoMdCart />
