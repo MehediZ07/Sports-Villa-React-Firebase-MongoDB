@@ -14,11 +14,13 @@ import AllEquipment from "../components/AllEquipment.jsx";
 import MyEquipment from "../components/PrivateRoutComponent/MyEquipment.jsx";
 import DetailsEquipment from "../components/PrivateRoutComponent/DetailsEquipment.jsx";
 import AddCart from "../components/PrivateRoutComponent/AddCart.jsx";
+import ErrorPage from "../components/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
