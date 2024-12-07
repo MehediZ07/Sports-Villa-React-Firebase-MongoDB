@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import Coffee from "./Coffee";
+// import Coffee from "./Coffee";
 import HeroBanner from "./Header/HeroBanner/HeroBanner";
 import { AuthContext } from "../Providers/AuthProvider";
 import Equipment from "./Equipment";

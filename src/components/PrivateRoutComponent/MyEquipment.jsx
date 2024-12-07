@@ -63,7 +63,7 @@ export default function MyEquipment() {
           My Equipment
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:max-w-6xl mx-auto max-w-[95%] ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto w-[90%] xl:w-[100%]">
         {filteredEquipment.map((equipment) => (
           <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent">
             {/* Image */}

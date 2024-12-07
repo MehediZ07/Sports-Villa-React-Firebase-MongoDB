@@ -196,7 +196,7 @@ export default function AddEquipment() {
       <div className="mt-6">
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-md py-2 px-4 bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] text-white hover:bg-blue-600/50"
         >
           Submit Product
         </button>

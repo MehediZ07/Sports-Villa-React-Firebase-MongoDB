@@ -78,7 +78,53 @@ export default function AllEquipment() {
             Here, all the product howcase in table below.
           </p>
         </div>
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto md:hidden w-full">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th> View Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loadedEquipment.map((equipment, index) => (
+                <tr key={equipment?._id}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-8 w-8">
+                          <img
+                            src={equipment?.photo}
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-semibold">
+                          {equipment?.itemName}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>{equipment?.price}</td>
+                  <th>
+                    <Link to={`/detailsEquipment/${equipment._id}`}>
+                      <span className="font-medium text-xs -ml-1 p-1 rounded-full   bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] text-white hover:bg-blue-600/50">
+                        View More
+                      </span>
+                    </Link>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="overflow-x-auto hidden md:block w-full">
           <table className="table lg:w-[60rem] xl:w-[73rem]">
             {/* head */}
             <thead>
@@ -139,7 +185,7 @@ export default function AllEquipment() {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl  mx-auto">
         {loadedEquipment.map((equipment) => (
           <Equipment
             equipment={equipment}

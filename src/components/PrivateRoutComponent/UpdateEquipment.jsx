@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 export default function UpdateEquipment() {
   const equipment = useLoaderData();
+  const { user } = useContext(AuthContext);
   const {
     _id,
     itemName,
@@ -14,9 +17,11 @@ export default function UpdateEquipment() {
     customization,
     processingTime,
     stockStatus,
+    email,
+    username,
   } = equipment;
 
-  const handleSubmit = (e) => {
+  const handleUpdateCoffee = (e) => {
     e.preventDefault();
     const photo = e.target.image.value;
     const itemName = e.target.itemName.value;
@@ -28,7 +33,7 @@ export default function UpdateEquipment() {
     const processingTime = e.target.processingTime.value;
     const stockStatus = e.target.stockStatus.value;
 
-    const equipment = {
+    const update = {
       photo,
       itemName,
       rating,
@@ -41,12 +46,14 @@ export default function UpdateEquipment() {
       username,
       email,
     };
+
+    // send data to the server and database
     fetch(`http://localhost:5000/equipment/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(equipment),
+      body: JSON.stringify(update),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -66,7 +73,7 @@ export default function UpdateEquipment() {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleUpdateCoffee}
       className="max-w-full sm:max-w-4xl mx-auto p-6 bg-base-100 rounded-lg border-4 solid border-gray-200 mb-10"
     >
       <h2 className="text-2xl font-bold mb-6">Product Information</h2>

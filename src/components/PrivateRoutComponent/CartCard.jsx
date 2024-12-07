@@ -84,19 +84,19 @@ export default function CartCard({ item }) {
             <h2 className="text-2xl font-bold">{item.itemName}</h2>
             <Link className="flex items-center gap-2" to="/addCart">
               <button
-                onClick={handleAddCart}
-                className="text-2xl  rounded-sm  m-0 "
-              >
-                <FaRegPlusSquare />
-              </button>
-              <p className="text-2xl font-medium">{item.quantity}X</p>
-              <button
                 onClick={() => {
                   handleDelete(item._id);
                 }}
                 className="text-2xl  rounded-sm  m-0   "
               >
                 <FaRegMinusSquare />
+              </button>
+              <p className="text-2xl font-medium">{item.quantity}X</p>
+              <button
+                onClick={handleAddCart}
+                className="text-2xl  rounded-sm  m-0 "
+              >
+                <FaRegPlusSquare />
               </button>
               {/* <button
                 onClick={() => {
