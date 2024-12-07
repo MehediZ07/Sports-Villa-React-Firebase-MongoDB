@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { GoogleAuthProvider } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet";
 
@@ -41,7 +41,7 @@ const SignIn = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        setError({ ...error });
       });
   };
 

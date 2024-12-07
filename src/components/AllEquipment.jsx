@@ -9,7 +9,11 @@ export default function AllEquipment() {
   const [loadedEquipment, setLoadedEquipment] = useState(equipments);
   const [sort, setSort] = useState("");
   if (loading || !equipments)
-    return <span className="loading loading-bars loading-lg"></span>;
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
 
   const handleSort = (sortType) => {
     setSort(sortType);

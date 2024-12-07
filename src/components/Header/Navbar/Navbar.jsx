@@ -35,7 +35,12 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (loaging) return <span className="loading loading-bars loading-lg"></span>;
+  if (loaging)
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
 
   const filteredEquipment = cart.filter(
     (equipment) => equipment.email === user?.email
