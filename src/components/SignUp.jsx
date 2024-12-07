@@ -65,7 +65,7 @@ const SignUp = () => {
         const createdAt = result?.user?.metadata?.creationTime;
         const newUser = { email, createdAt, name, photo };
         // save new user info to the database
-        fetch("http://localhost:5000/users", {
+        fetch("https://assignment-10-server-two-rho.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -75,7 +75,6 @@ const SignUp = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {
-              console.log("user created in db");
             }
           });
       })
@@ -99,7 +98,7 @@ const SignUp = () => {
         const loginInfo = { name, email, createdAt, lastSignInTime };
 
         // Update user information in the database
-        fetch("http://localhost:5000/users", {
+        fetch("https://assignment-10-server-two-rho.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -107,9 +106,7 @@ const SignUp = () => {
           body: JSON.stringify(loginInfo),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log("Google sign-in info updated in db", data);
-          });
+          .then((data) => {});
 
         navigate(location?.state ? location.state : "/");
       })

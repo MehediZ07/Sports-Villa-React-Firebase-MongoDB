@@ -6,3 +6,16 @@ html {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+@keyframes shakeX {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+.shakeX {
+  animation: shakeX 1s infinite;
+}

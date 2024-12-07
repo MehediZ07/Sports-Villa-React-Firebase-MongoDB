@@ -48,7 +48,7 @@ export default function UpdateEquipment() {
     };
 
     // send data to the server and database
-    fetch(`http://localhost:5000/equipment/${_id}`, {
+    fetch(`https://assignment-10-server-two-rho.vercel.app/equipment/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -57,9 +57,7 @@ export default function UpdateEquipment() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
-          console.log("successfully updated");
           Swal.fire({
             title: "Success!",
             text: "Coffee updated successfully",
@@ -79,7 +77,6 @@ export default function UpdateEquipment() {
       <h2 className="text-2xl font-bold mb-6">Product Information</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-        {/* Image */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Image URL
@@ -93,7 +90,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Item Name */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Item Name
@@ -107,7 +103,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Category */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Category
@@ -123,7 +118,7 @@ export default function UpdateEquipment() {
             <option value="Others">Others</option>
           </select>
         </div>
-        {/* Price */}
+
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Price
@@ -137,7 +132,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Rating */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Rating
@@ -156,7 +150,6 @@ export default function UpdateEquipment() {
           </select>
         </div>
 
-        {/* Customization */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Customization
@@ -170,7 +163,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Processing Time */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Processing Time (Delivery Time)
@@ -184,7 +176,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Stock Status */}
         <div className="col-span-1">
           <label className="block text-sm font-medium text-gray-500">
             Stock Status
@@ -198,7 +189,6 @@ export default function UpdateEquipment() {
           />
         </div>
 
-        {/* Description */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-2">
           <label className="block text-sm font-medium text-gray-500">
             Description
@@ -213,7 +203,6 @@ export default function UpdateEquipment() {
         </div>
       </div>
 
-      {/* Submit Button */}
       <div className="mt-6">
         <button
           type="submit"

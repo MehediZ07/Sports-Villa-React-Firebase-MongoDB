@@ -3,9 +3,9 @@ import Marquee from "react-fast-marquee";
 export default function OurPartner() {
   const [loaging, setLoading] = useState(true);
   const [partners, setPartner] = useState({});
-  console.log(partners);
+
   useEffect(() => {
-    fetch("http://localhost:5000/ourPartner")
+    fetch("https://assignment-10-server-two-rho.vercel.app/ourPartner")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -33,19 +33,16 @@ export default function OurPartner() {
       </p>
       <div className="gap-2 h-auto items-center -z-10 p-2">
         <Marquee pauseOnHover={true} speed={80} className="space-x-0">
-          {
-            // eslint-disable-next-line react/prop-types
-            partners.map((partner) => {
-              return (
-                <img
-                  key={partner._id}
-                  className="h-16 ml-24"
-                  src={partner.photo}
-                  alt=""
-                />
-              );
-            })
-          }
+          {partners.map((partner) => {
+            return (
+              <img
+                key={partner._id}
+                className="h-16 ml-24"
+                src={partner.photo}
+                alt=""
+              />
+            );
+          })}
         </Marquee>
         <Marquee
           pauseOnHover={true}
@@ -53,19 +50,16 @@ export default function OurPartner() {
           speed={80}
           className="space-x-0 mt-12"
         >
-          {
-            // eslint-disable-next-line react/prop-types
-            partners.map((partner) => {
-              return (
-                <img
-                  key={partner._id}
-                  className="h-16 ml-24"
-                  src={partner.photo}
-                  alt=""
-                />
-              );
-            })
-          }
+          {partners.map((partner) => {
+            return (
+              <img
+                key={partner._id}
+                className="h-16 ml-24"
+                src={partner.photo}
+                alt=""
+              />
+            );
+          })}
         </Marquee>
       </div>
     </div>

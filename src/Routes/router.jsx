@@ -25,7 +25,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/equipment"),
+        loader: () =>
+          fetch("https://assignment-10-server-two-rho.vercel.app/equipment"),
       },
 
       {
@@ -44,7 +45,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipment/${params.id}`),
+          fetch(
+            `https://assignment-10-server-two-rho.vercel.app/equipment/${params.id}`
+          ),
       },
       {
         path: "detailsEquipment/:id",
@@ -54,12 +57,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipment/${params.id}`),
+          fetch(
+            `https://assignment-10-server-two-rho.vercel.app/equipment/${params.id}`
+          ),
       },
       {
         path: "allEquipent",
         element: <AllEquipment></AllEquipment>,
-        loader: () => fetch("http://localhost:5000/equipment"),
+        loader: () =>
+          fetch("https://assignment-10-server-two-rho.vercel.app/equipment"),
       },
       {
         path: "myEquipent",
@@ -68,7 +74,8 @@ const router = createBrowserRouter([
             <MyEquipment></MyEquipment>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/equipment"),
+        loader: () =>
+          fetch("https://assignment-10-server-two-rho.vercel.app/equipment"),
       },
       {
         path: "addCart",
@@ -77,7 +84,8 @@ const router = createBrowserRouter([
             <AddCart></AddCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/equipment"),
+        loader: () =>
+          fetch("https://assignment-10-server-two-rho.vercel.app/equipment"),
       },
       {
         path: "category",
@@ -106,7 +114,8 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users></Users>,
-        loader: () => fetch("http://localhost:5000/users"),
+        loader: () =>
+          fetch("https://assignment-10-server-two-rho.vercel.app/users"),
       },
     ],
   },

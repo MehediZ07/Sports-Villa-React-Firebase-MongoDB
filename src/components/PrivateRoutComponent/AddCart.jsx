@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CartCard from "./CartCard";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-
+import { Helmet } from "react-helmet";
 export default function AddCart() {
   const { user } = useContext(AuthContext);
   const [loaging, setLoading] = useState(true);
@@ -13,7 +13,7 @@ export default function AddCart() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:5000/addCart")
+      fetch("https://assignment-10-server-two-rho.vercel.app/addCart")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch");
@@ -22,10 +22,9 @@ export default function AddCart() {
         })
         .then((json) => {
           setCart(json);
-          console.log(json);
           setLoading(false);
         })
-        // eslint-disable-next-line no-unused-vars
+
         .catch((err) => {
           setLoading(false);
         });
@@ -75,7 +74,7 @@ export default function AddCart() {
       confirmButtonText: "Yes, Purches!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:5000/clearCart", {
+        fetch("https://assignment-10-server-two-rho.vercel.app/clearCart", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -88,7 +87,6 @@ export default function AddCart() {
             return res.json();
           })
           .then((data) => {
-            // console.log(data);
             if (data.deletedCount) {
               goToHome();
               Swal.fire({
@@ -102,10 +100,19 @@ export default function AddCart() {
     });
   };
 
-  if (loaging) return <span className="loading loading-bars loading-lg"></span>;
+  if (loaging)
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
+    );
 
   return (
     <div className="max-w-6xl mx-auto my-12">
+      <Helmet>
+        <title>{`Cart | Sports Villa`}</title>
+        <meta name="description" content="Description of your page" />
+      </Helmet>
       {filteredEquipment.length === 0 ? (
         <div className="flex gap-4 flex-col justify-center items-center  h-[500px]">
           <h2 className="text-5xl">

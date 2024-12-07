@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCA8YWnMRlomWf_rqMY_M2JFAgrxrsqOVg",
-  authDomain: "sports-villa-54185.firebaseapp.com",
-  projectId: "sports-villa-54185",
-  storageBucket: "sports-villa-54185.firebasestorage.app",
-  messagingSenderId: "95313718542",
-  appId: "1:95313718542:web:54621ffc08f4bb0b197b5f"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 const app = initializeApp(firebaseConfig);

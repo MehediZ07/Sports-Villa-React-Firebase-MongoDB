@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaRegMinusSquare, FaRegPlusSquare } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+// import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -17,12 +17,14 @@ export default function CartCard({ item }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addCart/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-two-rho.vercel.app/addCart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -50,7 +52,7 @@ export default function CartCard({ item }) {
       username,
       email,
     };
-    fetch("http://localhost:5000/addCart", {
+    fetch("https://assignment-10-server-two-rho.vercel.app/addCart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -60,7 +62,6 @@ export default function CartCard({ item }) {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("successfully added");
           Swal.fire({
             title: "Success!",
             text: "Added One More successfully",

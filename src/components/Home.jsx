@@ -5,7 +5,7 @@ import HeroBanner from "./Header/HeroBanner/HeroBanner";
 import { AuthContext } from "../Providers/AuthProvider";
 import Equipment from "./Equipment";
 import { Zoom } from "react-awesome-reveal";
-
+import { Helmet } from "react-helmet";
 import OurAthletes from "./OurAthletes";
 import Category from "./Category";
 import OurPartner from "./OurPartner";
@@ -55,6 +55,10 @@ const Home = () => {
   if (loading)
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
+        <Helmet>
+          <title>{`Home | Sports Villa`}</title>
+          <meta name="description" content="Description of your page" />
+        </Helmet>
         <Zoom>
           <div className="flex flex-col items-center">
             <svg
@@ -135,20 +139,19 @@ const Home = () => {
                 currentSlide === i + 1 ? "block" : "hidden"
               }`}
             >
-              {/* Left Image Section */}
               <div className="relative group">
                 <img
-                  src={category.Image}
+                  src={category?.Image}
                   alt="Equipment"
                   className="rounded-lg object-cover w-full h-96 sm:min-h-96 sm:h-full"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end p-4 rounded-lg opacity-100 transition-opacity">
                   <h3 className="text-white font-semibold text-xl">
-                    {category.categoryName} Equipments
+                    {category?.categoryName} Equipments
                   </h3>
                 </div>
               </div>
-              {/* Right Product List */}
+
               <div className="md:col-span-2 lg:col-span-4">
                 <h2 className="text-2xl font-semibold ">Feature Product</h2>
                 <p className="text-gray-500 text-sm mb-6">
@@ -180,7 +183,6 @@ const Home = () => {
 
         <div>
           <div className=" max-w-[98%] overflow-hidden mx-auto my-16">
-            {/* Top Section with Heading */}
             <div className="px-8 py-6">
               <h2 className="text-3xl font-bold">
                 Professional sports products
@@ -190,47 +192,36 @@ const Home = () => {
               </p>
             </div>
 
-            {/* Content Section */}
             <div className="flex flex-col lg:flex-row items-center justify-between bg-[#00afe088] text-white px-8 py-10 ">
-              {/* Left Section */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full lg:w-1/2">
-                {/* Card 1 */}
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl mb-2">🏈</div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="text-4xl mb-2 animate-bounce">⚽</div>
                   <h3 className="text-lg font-semibold mb-1">
-                    A friendly team works for you
+                    Soccer / Football
                   </h3>
                   <p className="text-sm text-center">
-                    Some teams bring a smile to your face, while others are
-                    truly supportive.
+                    We have all king of equipments and also have training kit.
                   </p>
                 </div>
-                {/* Card 2 */}
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl mb-2">🎯</div>
-                  <h3 className="text-lg font-semibold mb-1">
-                    Professional grade equipment
-                  </h3>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="text-4xl mb-2 shakeX ">🏏</div>
+                  <h3 className="text-lg font-semibold mb-1">Cricket</h3>
                   <p className="text-sm text-center">
-                    Professional grade equipment not only meets expectations but
-                    also surpasses them.
+                    We have profetional and entry lavel cricket equipments.
                   </p>
                 </div>
-                {/* Card 3 */}
+
                 <div className="flex flex-col items-center">
-                  <div className="text-4xl mb-2">🚀</div>
-                  <h3 className="text-lg font-semibold mb-1">
-                    Time-tested product manufacturers
-                  </h3>
+                  <div className="text-4xl mb-2 animate-pulse ">🏸</div>
+                  <h3 className="text-lg font-semibold mb-1">Others</h3>
                   <p className="text-sm text-center">
-                    Time-tested product trusted manufacturers deliver reliable
-                    goods.
+                    We delevared all kind of seasonal sports equipmens.
                   </p>
                 </div>
               </div>
 
-              {/* Right Section */}
-              <div className="w-[90%]  lg:w-1/2 flex justify-center lg:justify-end  lg:mt-0 relative">
+              <div className="w-[90%] mt-6  lg:w-1/2 flex justify-center lg:justify-end  lg:mt-0 relative">
                 <div className="relative w-full pb-[56.25%] lg:-mt-36 h-0">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"

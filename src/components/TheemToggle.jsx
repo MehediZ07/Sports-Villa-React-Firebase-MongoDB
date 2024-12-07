@@ -14,7 +14,6 @@ export default function TheemToggle() {
   };
   return (
     <label className="swap swap-rotate items-center">
-      {/* this hidden checkbox controls the state */}
       <input
         type="checkbox"
         defaultChecked={theme === "dark"}

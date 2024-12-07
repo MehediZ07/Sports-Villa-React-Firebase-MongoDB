@@ -33,7 +33,7 @@ export default function MyProfile() {
         position: "top-center",
         autoClose: 2000,
       });
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://assignment-10-server-two-rho.vercel.app/users`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -41,9 +41,7 @@ export default function MyProfile() {
         body: JSON.stringify(loginInfo),
       })
         .then((res) => res.json())
-        .then((data) => {
-          console.log("sign in info updated in db", data);
-        });
+        .then((data) => {});
       navigate("/myProfile");
       e.target.reset();
     });
@@ -52,7 +50,7 @@ export default function MyProfile() {
   return (
     <div className="min-h-[600px] mx-auto max-w-7xl w-[90%]">
       <Helmet>
-        <title>{`My Profile | Career Consult`}</title>
+        <title>{`My Profile | Sports Villa`}</title>
         <meta name="description" content="Description of your page" />
       </Helmet>
       {user && (

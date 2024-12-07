@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 export default function OurAthletes() {
   const [loaging, setLoading] = useState(true);
   const [athletes, setAthletes] = useState({});
-  console.log(athletes);
+
   useEffect(() => {
-    fetch("http://localhost:5000/ourAthletes")
+    fetch("https://assignment-10-server-two-rho.vercel.app/ourAthletes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");

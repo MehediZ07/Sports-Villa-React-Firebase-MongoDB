@@ -19,7 +19,7 @@ const SignIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+
     userLogin(email, password)
       .then((result) => {
         setUser(result.user);
@@ -27,7 +27,7 @@ const SignIn = () => {
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const loginInfo = { email, lastSignInTime };
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://assignment-10-server-two-rho.vercel.app/users`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -35,9 +35,7 @@ const SignIn = () => {
           body: JSON.stringify(loginInfo),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log("sign in info updated in db", data);
-          });
+          .then((data) => {});
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
@@ -60,7 +58,7 @@ const SignIn = () => {
         const loginInfo = { name, email, createdAt, lastSignInTime };
 
         // Update user information in the database
-        fetch("http://localhost:5000/users", {
+        fetch("https://assignment-10-server-two-rho.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -68,9 +66,7 @@ const SignIn = () => {
           body: JSON.stringify(loginInfo),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log("Google sign-in info updated in db", data);
-          });
+          .then((data) => {});
 
         navigate(location?.state ? location.state : "/");
       })
@@ -90,7 +86,7 @@ const SignIn = () => {
   return (
     <div className="min-h-screen flex justify-center items-center mb-12">
       <Helmet>
-        <title>{`Login | Career Consult`}</title>
+        <title>{`Login | Sports Villa`}</title>
         <meta name="description" content="Description of your page" />
       </Helmet>
       <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10 border-2 border-gray-200 solid">

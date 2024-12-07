@@ -19,43 +19,9 @@ export default function Equipment({
     stockStatus,
     username,
   } = equipment;
-  // const handleDelete = (_id) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:5000/equipment/${_id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           // console.log(data);
-  //           if (data.deletedCount) {
-  //             Swal.fire({
-  //               title: "Deleted!",
-  //               text: "Your file has been deleted.",
-  //               icon: "success",
-  //             });
 
-  //             // update the loaded equipment state
-  //             const remainingEquipments = loadedEquipment.filter(
-  //               (equipment) => equipment._id !== _id
-  //             );
-  //             setLoadedEquipment(remainingEquipments);
-  //           }
-  //         });
-  //     }
-  //   });
-  // };
   return (
     <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent h-fit w-64 ">
-      {/* Image */}
       <img
         className="w-full h-32 object-cover rounded-t-lg"
         src={photo}
@@ -63,7 +29,6 @@ export default function Equipment({
       />
 
       <div className="px-2 py-2 bg-base-100 rounded-b-lg shadow-xl hover:shadow-2xl transform  transition duration-300">
-        {/* Product Name and Username */}
         <div className="flex flex-col justify-between gap-4 border-b pb-3 mb-2">
           <h2 className="font-semibold text-lg h-8 text-center ">{itemName}</h2>
 
@@ -72,7 +37,6 @@ export default function Equipment({
           </p>
         </div>
 
-        {/* Rating */}
         <div className="flex items-center space-x-1 bg-yellow-100/50 text-yellow-600 py-2 px-3 rounded-md mb-2">
           <span className="font-semibold text-gray-700">Ratting</span>
           {[...Array(Math.floor(rating))].map((_, i) => (

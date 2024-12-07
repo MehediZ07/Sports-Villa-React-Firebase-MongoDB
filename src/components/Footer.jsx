@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-base-100 text-gray-400 border-t border-gray-200 max-w-7xl mx-auto">
-      {/* Top Section */}
       <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
-        {/* Logo and Description */}
         <div className="col-span-2">
           <Link
             to="/"
@@ -54,7 +52,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Our Stores */}
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
             Our stores
@@ -67,7 +64,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Information */}
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
             Information
@@ -80,7 +76,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Properties */}
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
             Properties
@@ -92,7 +87,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Our Instagram */}
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
             Our Instagram
@@ -132,7 +126,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="divider"></div>
-      {/* Bottom Section */}
+
       <div className=" text-gray-500 py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">

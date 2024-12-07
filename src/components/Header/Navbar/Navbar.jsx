@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:5000/addCart")
+      fetch("https://assignment-10-server-two-rho.vercel.app/addCart")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch");
@@ -24,7 +24,7 @@ const Header = () => {
           setCart(json);
           setLoading(false);
         })
-        // eslint-disable-next-line no-unused-vars
+
         .catch((err) => {
           setLoading(false);
         });

@@ -23,7 +23,7 @@ export default function DetailsEquipment() {
       username,
       email,
     };
-    fetch("http://localhost:5000/addCart", {
+    fetch("https://assignment-10-server-two-rho.vercel.app/addCart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,7 +33,6 @@ export default function DetailsEquipment() {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("successfully added");
           Swal.fire({
             title: "Success!",
             text: "Add to Cart successfully",
@@ -49,9 +48,8 @@ export default function DetailsEquipment() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-md">
+    <div className="max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-md mb-12 mt-4">
       <div className="flex flex-col md:flex-row gap-6">
-        {/* Image Section */}
         <div className="md:w-1/2 flex justify-center">
           <img
             src={equipment.photo}
@@ -60,7 +58,6 @@ export default function DetailsEquipment() {
           />
         </div>
 
-        {/* Details Section */}
         <div className="md:w-1/2">
           <h1 className="text-2xl font-bold mb-4">{equipment.itemName}</h1>
           <p className="text-gray-500 mb-4">{equipment.description}</p>
@@ -70,7 +67,6 @@ export default function DetailsEquipment() {
           </div>
 
           <div className="mb-4">
-            {/* Rating */}
             <h2 className="my-3 font-semibold flex items-center justify-start">
               <span className="mr-2 font-semibold">Rating: </span>
               <ReactStars

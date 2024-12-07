@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Equipment from "./Equipment";
-
+import ReactStars from "react-stars";
+import { Helmet } from "react-helmet";
 export default function AllEquipment() {
   const equipments = useLoaderData();
   const { loading } = useContext(AuthContext);
@@ -38,6 +39,10 @@ export default function AllEquipment() {
 
   return (
     <div className="max-w-7xl mx-auto flex flex-col items-center mb-12">
+      <Helmet>
+        <title>{`All Equipment | Sports Villa`}</title>
+        <meta name="description" content="Description of your page" />
+      </Helmet>
       <div class="text-center">
         <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#00e0a1] via-[#00b0e0]  to-[#1bb3ff] text-transparent bg-clip-text">
           All Products
@@ -84,7 +89,6 @@ export default function AllEquipment() {
         </div>
         <div className="overflow-x-auto md:hidden w-full">
           <table className="table">
-            {/* head */}
             <thead>
               <tr>
                 <th>No</th>
@@ -130,7 +134,6 @@ export default function AllEquipment() {
         </div>
         <div className="overflow-x-auto hidden md:block w-full">
           <table className="table lg:w-[60rem] xl:w-[73rem]">
-            {/* head */}
             <thead>
               <tr>
                 <th>Total: {loadedEquipment.length}</th>
@@ -165,7 +168,18 @@ export default function AllEquipment() {
                   </td>
                   <td>{equipment?.category}</td>
                   <td>{equipment?.price}</td>
-                  <td>{equipment?.rating}</td>
+                  <td>
+                    <ReactStars
+                      count={5}
+                      size={24}
+                      isHalf={true}
+                      emptyIcon={<i className="far fa-star"></i>}
+                      halfIcon={<i className="fa fa-star-half-alt"></i>}
+                      fullIcon={<i className="fa fa-star"></i>}
+                      activeColor="#ffcc26"
+                      value={equipment?.rating}
+                    />
+                  </td>
                   <th>
                     <Link to={`/detailsEquipment/${equipment._id}`}>
                       <span className="font-medium text-sm -ml-1 p-2 py-1 rounded-full   bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] text-white hover:bg-blue-600/50">

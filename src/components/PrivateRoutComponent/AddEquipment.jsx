@@ -5,7 +5,6 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function AddEquipment() {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const photo = e.target.image.value;
@@ -33,10 +32,7 @@ export default function AddEquipment() {
       email,
     };
 
-    // Sending the product data to the backend using a POST request
-    // send data to the server and database
-    // send data to the server and database
-    fetch("http://localhost:5000/equipment", {
+    fetch("https://assignment-10-server-two-rho.vercel.app/equipment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,7 +42,6 @@ export default function AddEquipment() {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("successfully added");
           Swal.fire({
             title: "Success!",
             text: "Coffee added successfully",
