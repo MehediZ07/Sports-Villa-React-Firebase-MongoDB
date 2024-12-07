@@ -69,7 +69,7 @@ export default function AllEquipment() {
           </li>
         </ul>
       </div>
-      <div className="max-w-7xl mx-auto -mt-6 mb-12">
+      <div className="max-w-7xl mx-auto -mt-10 mb-12">
         <div className="px-3 py-6">
           <h2 className="text-3xl text-[#23bf9ba7] font-bold">
             Product show in table formate

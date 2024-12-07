@@ -90,6 +90,7 @@ export default function AddCart() {
           .then((data) => {
             // console.log(data);
             if (data.deletedCount) {
+              goToHome();
               Swal.fire({
                 title: "Purches!",
                 text: "Purches Successly.",
@@ -148,7 +149,9 @@ export default function AddCart() {
             <button
               className="text-lg w-fit text-[#05af7ccb] font-semibold border-2 rounded-full px-4 py-[.6rem] solid border-[#05af7ccb]
               "
-              onClick={clearCart}
+              onClick={() => {
+                clearCart();
+              }}
             >
               Purches
             </button>
