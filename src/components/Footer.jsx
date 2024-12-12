@@ -127,7 +127,7 @@ export default function Footer() {
       </div>
       <div className="divider"></div>
 
-      <div className=" text-gray-500 py-4">
+      <div className=" text-gray-500 py-4 col-span-2 md:col-span-1">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
             &copy; 2024 Sports Villa. Created by Mehedi Zaman Fahim Studio

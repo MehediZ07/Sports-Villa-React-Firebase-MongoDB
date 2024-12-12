@@ -74,6 +74,23 @@ export default function UpdateEquipment() {
       onSubmit={handleUpdateCoffee}
       className="max-w-full sm:max-w-4xl mx-auto p-6 bg-base-100 rounded-lg border-4 solid border-gray-200 mb-10"
     >
+      <div className="flex items-center gap-4 mb-6 w-fit mx-auto overflow-hidden">
+        <div className="w-20 h-20 rounded-full">
+          <img
+            className="w-full h-full rounded-full"
+            src={user?.photoURL}
+            alt={user ? user.displayName : ""}
+          />
+        </div>
+
+        <div>
+          <h1 className="text-[#97e5d4] font-semibold text-xl">
+            {user ? user.displayName : ""}
+          </h1>
+          <p className="text-gray-500 italic">{user ? user.email : ""}</p>
+        </div>
+      </div>
+      <div className="divider"></div>
       <h2 className="text-2xl font-bold mb-6">Product Information</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
