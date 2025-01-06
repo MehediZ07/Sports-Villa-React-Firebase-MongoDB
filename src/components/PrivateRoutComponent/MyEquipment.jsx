@@ -53,7 +53,7 @@ export default function MyEquipment() {
   };
 
   return (
-    <div className="mb-12">
+    <div className="mb-12 max-w-7xl mx-auto px-4">
       <Helmet>
         <title>{`My Equipment | Sports Villa`}</title>
         <meta name="description" content="Description of your page" />
@@ -67,77 +67,77 @@ export default function MyEquipment() {
           My Equipment
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto w-[90%] xl:w-[100%]">
-        {filteredEquipment.map((equipment) => (
-          <div className=" rounded-lg overflow-hidden shadow-sm transform transition-all   hover:shadow-lg bg-transparent">
-            <img
-              className="w-full h-32 object-cover rounded-t-lg"
-              src={equipment.photo}
-              alt={equipment.itemName}
-            />
-
-            <div className="px-2 py-2 bg-base-100 rounded-b-lg shadow-xl hover:shadow-2xl transform  transition duration-300">
-              <div className="flex flex-col justify-between gap-4 border-b pb-3 mb-2">
-                <h2 className="font-semibold text-lg h-8 text-center ">
-                  {equipment.itemName}
-                </h2>
-
-                <p className="text-sm text-start w-fit bg-blue-100 text-blue-700 px-2 py-1 rounded-full italic">
-                  Listed by: {equipment.username}
-                </p>
-              </div>
-
-              <h2 className="my-3 font-semibold flex items-center justify-start">
-                <span className="mr-2 font-semibold">Rating: </span>
-                <ReactStars
-                  count={5}
-                  size={24}
-                  isHalf={true}
-                  emptyIcon={<i className="far fa-star"></i>}
-                  halfIcon={<i className="fa fa-star-half-alt"></i>}
-                  fullIcon={<i className="fa fa-star"></i>}
-                  activeColor="#ffcc26"
-                  value={equipment.rating}
-                />
-              </h2>
-
-              <p className="text-2xl font-bold text-green-600 mb-3">
-                ${equipment.price}
-              </p>
-              <ul className="text-sm text-gray-500 space-y-2 mb-2">
-                <li>
-                  <span className="font-medium text-gray-400">Category:</span>{" "}
-                  {equipment.category}
-                </li>
-
-                <li>
-                  <span className="font-medium text-gray-400">Stock:</span>{" "}
-                  {equipment.stockStatus} items left
-                </li>
-                <li>
-                  <div className="flex justify-between items-center">
-                    <Link to={`/detailsEquipment/${equipment._id}`}>
-                      <span className="font-medium px-2 py-1 rounded-full border-2 solid">
-                        View More
-                      </span>
-                    </Link>
-                    <Link to={`/updateEquipment/${equipment._id}`}>
-                      <button className="font-medium text-2xl  px-2  py-1 rounded-full ">
-                        <FaEdit />
-                      </button>
-                    </Link>
-                    <button
-                      onClick={() => handleDelete(equipment._id)}
-                      className="font-medium text-3xl text-red-400  px-2  py-1 rounded-full "
-                    >
-                      <MdOutlineDeleteForever />
-                    </button>
+      <div className="overflow-x-auto">
+        <table className="table min-w-[920px] bg-base-100 shadow-md rounded-lg overflow-hidden">
+          <thead className="bg-base-300">
+            <tr className="text-start">
+              <th className="px-4 py-2">No.</th>
+              <th className="px-4 py-2">Product Name</th>
+              <th className="px-4 py-2">Category</th>
+              <th className="px-4 py-2">Price</th>
+              <th className="px-4 py-2">Rating</th>
+              <th className="px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredEquipment.map((equipment, index) => (
+              <tr key={equipment._id} className="hover:bg-base-200">
+                <td className="px-4 py-2 text-center">{index + 1}</td>
+                <td className="px-4 py-2">
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle h-12 w-12">
+                        <img src={equipment.photo} alt={equipment.itemName} />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold">{equipment.itemName}</div>
+                      <div className="badge badge-ghost badge-sm">
+                        Listed By: {equipment.username}
+                      </div>
+                    </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ))}
+                </td>
+                <td className="px-4 py-2 text-center">{equipment.category}</td>
+                <td className="px-4 py-2 text-center text-green-600 font-bold">
+                  ${equipment.price}
+                </td>
+                <td className="px-4 py-2">
+                  <div className="flex justify-center">
+                    <ReactStars
+                      count={5}
+                      size={24}
+                      isHalf={true}
+                      emptyIcon={<i className="far fa-star"></i>}
+                      halfIcon={<i className="fa fa-star-half-alt"></i>}
+                      fullIcon={<i className="fa fa-star"></i>}
+                      activeColor="#ffcc26"
+                      value={equipment.rating}
+                    />
+                  </div>
+                </td>
+                <td className="px-4 py-2 flex justify-around items-center">
+                  <Link to={`/detailsEquipment/${equipment._id}`}>
+                    <span className="font-medium px-4 py-2 rounded-full bg-gradient-to-r from-[#00e0a093] via-[#00afe088] to-[#1bb3ff8b] text-white hover:bg-blue-600/50 transition duration-300 shadow-md">
+                      View More
+                    </span>
+                  </Link>
+                  <Link to={`/updateEquipment/${equipment._id}`}>
+                    <button className="font-medium text-lg flex items-center justify-center w-10 h-10 rounded-full bg-yellow-200 hover:bg-yellow-300 transition duration-300 shadow-md">
+                      <FaEdit className="text-yellow-600" />
+                    </button>
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(equipment._id)}
+                    className="font-medium text-lg flex items-center justify-center w-10 h-10 rounded-full bg-red-200 hover:bg-red-300 transition duration-300 shadow-md"
+                  >
+                    <MdOutlineDeleteForever className="text-red-600" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

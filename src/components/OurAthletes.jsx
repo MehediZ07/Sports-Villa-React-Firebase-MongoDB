@@ -24,8 +24,8 @@ export default function OurAthletes() {
 
   if (loaging) return <span className="loading loading-bars loading-lg"></span>;
   return (
-    <div className="athletes-section px-6 py-10">
-      <div className="flex justify-between items-center mb-6">
+    <div className="athletes-section px-4 py-10">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-bold">Our athletes</h2>
       </div>
       <p className="text-gray-500 mb-8">
@@ -40,7 +40,7 @@ export default function OurAthletes() {
             <img
               src={athlete.image}
               alt={athlete.title}
-              className="w-[50%] h-fyll object-cover"
+              className="w-[50%] h-full object-cover"
             />
             <div className="p-4">
               <p className="text-sm text-gray-400 mb-1">

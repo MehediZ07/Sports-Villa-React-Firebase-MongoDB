@@ -25,7 +25,7 @@ export default function OurPartner() {
   if (loaging) return <span className="loading loading-bars loading-lg"></span>;
   return (
     <div className="px-6 py-10 w-[99.99%] max-w-7xl mx-auto overflow-hidden">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-bold">Our Partner</h2>
       </div>
       <p className="text-gray-500 mb-8">

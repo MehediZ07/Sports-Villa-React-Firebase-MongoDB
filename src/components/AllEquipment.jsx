@@ -43,7 +43,7 @@ export default function AllEquipment() {
         <title>{`All Equipment | Sports Villa`}</title>
         <meta name="description" content="Description of your page" />
       </Helmet>
-      <div class="text-center">
+      {/* <div class="text-center">
         <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#00e0a1] via-[#00b0e0]  to-[#1bb3ff] text-transparent bg-clip-text">
           All Products
         </h1>
@@ -51,43 +51,19 @@ export default function AllEquipment() {
         <h1 class="text-5xl md:text-7xl font-bold text-blue-500 opacity-30 transform -mt-[.75rem] scale-y-[-.8]  bg-gradient-to-t from-blue-500/50 via-blue-300/50 to-transparent bg-clip-text text-transparent">
           All Products
         </h1>
-      </div>
-      <div className="dropdown mb-6  rounded-xl">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn text-[#38e2c3] hover:bg-[#c9fdf086] hover:border-2 border rounded-full px-6 border-[#38e2b7] hover:border-[#31ffd6] solid bg-transparent m-1"
-        >
-          {!sort ? "Sort by" : `Sort By - ${sort}`}
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content menu  bg-base-200 rounded-box z-[1] w-fit p-2 shadow"
-        >
-          <li
-            className=" bg-base-100  hover:border-[#38e2ba] border-2 solid border-[#38e2ba] mb-2 w-24 rounded-lg"
-            onClick={() => handleSort("Low-High")}
-          >
-            <a>Low-High</a>
-          </li>
-          <li
-            className=" bg-base-100  hover:border-[#38e2ba] border-2 solid border-[#38e2ba] w-24  rounded-lg"
-            onClick={() => handleSort("High-Low")}
-          >
-            <a>High-Low</a>
-          </li>
-        </ul>
-      </div>
-      <div className="max-w-7xl mx-auto -mt-10 mb-12">
-        <div className="px-3 py-6">
+      </div> */}
+
+      <div className="max-w-7xl mx-auto ">
+        {/* <div className="px-3 py-6">
           <h2 className="text-3xl text-[#23bf9ba7] font-bold">
             Product show in table formate
           </h2>
           <p className="text-gray-500 mt-2">
             Here, all the product howcase in table below.
           </p>
-        </div>
-        <div className="overflow-x-auto md:hidden w-full">
+        </div> */}
+        {/* Small Device  */}
+        {/* <div className="overflow-x-auto md:hidden w-full">
           <table className="table">
             <thead>
               <tr>
@@ -131,8 +107,9 @@ export default function AllEquipment() {
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="overflow-x-auto hidden md:block w-full">
+        </div> */}
+        {/* Large Device  */}
+        {/* <div className="overflow-x-auto hidden md:block w-full">
           <table className="table lg:w-[60rem] xl:w-[73rem]">
             <thead>
               <tr>
@@ -191,19 +168,45 @@ export default function AllEquipment() {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
-      <div className="w-full max-w-[40rem] lg:max-w-[60rem] xl:max-w-[73rem]">
-        <div className="px-5 py-6 text-start">
+      <div className="w-full flex justify-between max-w-7xl px-4">
+        <div className=" py-6 text-start">
           <h2 className="text-3xl text-[#23bf9ba7] font-bold">
-            Product show in card formate
+            All Equipments
           </h2>
           <p className="text-gray-500 mt-2">
             Here, all the product card howcase below.
           </p>
         </div>
+        <div className="dropdown mb-6  rounded-xl">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn text-[#38e2c3] hover:bg-[#c9fdf086] hover:border-2 border rounded-full px-6 border-[#38e2b7] hover:border-[#31ffd6] solid bg-transparent m-1"
+          >
+            {!sort ? "Sort by" : `Sort By - ${sort}`}
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu  bg-base-200 rounded-box z-[1] w-fit p-2 shadow"
+          >
+            <li
+              className=" bg-base-100  hover:border-[#38e2ba] border-2 solid border-[#38e2ba] mb-2 w-24 rounded-lg"
+              onClick={() => handleSort("Low-High")}
+            >
+              <a>Low-High</a>
+            </li>
+            <li
+              className=" bg-base-100  hover:border-[#38e2ba] border-2 solid border-[#38e2ba] w-24  rounded-lg"
+              onClick={() => handleSort("High-Low")}
+            >
+              <a>High-Low</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl  mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 max-w-7xl  mx-auto px-4">
         {loadedEquipment.map((equipment) => (
           <Equipment
             equipment={equipment}

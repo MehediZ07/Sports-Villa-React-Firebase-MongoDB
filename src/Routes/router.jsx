@@ -15,6 +15,7 @@ import MyEquipment from "../components/PrivateRoutComponent/MyEquipment.jsx";
 import DetailsEquipment from "../components/PrivateRoutComponent/DetailsEquipment.jsx";
 import AddCart from "../components/PrivateRoutComponent/AddCart.jsx";
 import ErrorPage from "../components/ErrorPage.jsx";
+import Policies from "../components/Policies.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,11 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: "detailsEquipment/:id",
-        element: (
-          <PrivateRoute>
-            <DetailsEquipment></DetailsEquipment>
-          </PrivateRoute>
-        ),
+        element: <DetailsEquipment></DetailsEquipment>,
         loader: ({ params }) =>
           fetch(
             `https://assignment-10-server-two-rho.vercel.app/equipment/${params.id}`
@@ -76,6 +73,10 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch("https://assignment-10-server-two-rho.vercel.app/equipment"),
+      },
+      {
+        path: "policies",
+        element: <Policies />,
       },
       {
         path: "addCart",

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-// import Coffee from "./Coffee";
+
 import HeroBanner from "./Header/HeroBanner/HeroBanner";
 import { AuthContext } from "../Providers/AuthProvider";
 import Equipment from "./Equipment";
@@ -9,7 +9,9 @@ import { Helmet } from "react-helmet";
 import OurAthletes from "./OurAthletes";
 import Category from "./Category";
 import OurPartner from "./OurPartner";
+import ProfessionalSports from "./ProfessionalSports";
 
+import FeaturesSection from "./FeaturesSection";
 const Home = () => {
   const equipments = useLoaderData();
   const { loading } = useContext(AuthContext);
@@ -19,7 +21,7 @@ const Home = () => {
 
   const equipmentsData = showAll
     ? loadedEquipment
-    : loadedEquipment.slice(0, 8);
+    : loadedEquipment.slice(0, 10);
 
   const [currentSlide, setCurrentSlide] = useState(1);
 
@@ -105,7 +107,7 @@ const Home = () => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
           {equipmentsData.map((equipment) => (
             <Equipment
               equipment={equipment}
@@ -121,7 +123,7 @@ const Home = () => {
         >
           See Our All Products
         </Link>
-        <div className="bg-base-100 py-8 px-4 md:px-16 relative">
+        <div className="bg-base-100 py-8 px-4 relative">
           <div class="text-center">
             <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#00e0a093] via-[#00afe088]  to-[#1bb3ff8b] text-transparent bg-clip-text">
               Our Category
@@ -180,64 +182,11 @@ const Home = () => {
             </button>
           </div>
         </div>
-
-        <div>
-          <div className=" max-w-[98%] overflow-hidden mx-auto my-16">
-            <div className="px-8 py-6">
-              <h2 className="text-3xl font-bold">
-                Professional sports products
-              </h2>
-              <p className="text-gray-600 mt-2">
-                We specialize in a variety of professional sports products.
-              </p>
-            </div>
-
-            <div className="flex flex-col lg:flex-row items-center justify-between bg-[#00afe088] text-white px-8 py-10 ">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full lg:w-1/2">
-                <div className="flex flex-col items-center text-center">
-                  <div className="text-4xl mb-2 animate-bounce">⚽</div>
-                  <h3 className="text-lg font-semibold mb-1">
-                    Soccer / Football
-                  </h3>
-                  <p className="text-sm text-center">
-                    We have all king of equipments and also have training kit.
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center">
-                  <div className="text-4xl mb-2 shakeX ">🏏</div>
-                  <h3 className="text-lg font-semibold mb-1">Cricket</h3>
-                  <p className="text-sm text-center">
-                    We have profetional and entry lavel cricket equipments.
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl mb-2 animate-pulse ">🏸</div>
-                  <h3 className="text-lg font-semibold mb-1">Others</h3>
-                  <p className="text-sm text-center">
-                    We delevared all kind of seasonal sports equipmens.
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-[90%] mt-6  lg:w-1/2 flex justify-center lg:justify-end  lg:mt-0 relative">
-                <div className="relative w-full pb-[56.25%] lg:-mt-36 h-0">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-                    src="https://www.youtube.com/embed/NXFVohLkWok?si=utKg9y7Z5pDRuZnu"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProfessionalSports />
         <OurAthletes></OurAthletes>
+
+        <FeaturesSection></FeaturesSection>
+
         <OurPartner></OurPartner>
       </div>
     </div>

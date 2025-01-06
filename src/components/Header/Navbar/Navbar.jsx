@@ -92,55 +92,82 @@ const Header = () => {
           All Equipment
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className="navlink ml-1"
-          to="/myEquipent"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  fontWeight: "600",
-                  color: "#fff",
-                  background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
-                }
-              : {
-                  fontWeight: "400",
-                  backgroundColor: "#ffffffa0",
-                  color: "#374151",
-                }
-          }
-        >
-          My Equipment
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="navlink ml-1"
-          to="/addEquipment"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  fontWeight: "600",
-                  color: "#fff",
-                  background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
-                }
-              : {
-                  fontWeight: "400",
-                  backgroundColor: "#ffffffa0",
-                  color: "#374151",
-                }
-          }
-        >
-          Add Equipment
-        </NavLink>
-      </li>
+      {user?.email && (
+        <>
+          {" "}
+          <li>
+            <NavLink
+              className="navlink ml-1"
+              to="/addEquipment"
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      fontWeight: "600",
+                      color: "#fff",
+                      background:
+                        "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    }
+                  : {
+                      fontWeight: "400",
+                      backgroundColor: "#ffffffa0",
+                      color: "#374151",
+                    }
+              }
+            >
+              Add Equipment
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className="navlink ml-1"
+              to="/myEquipent"
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      fontWeight: "600",
+                      color: "#fff",
+                      background:
+                        "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    }
+                  : {
+                      fontWeight: "400",
+                      backgroundColor: "#ffffffa0",
+                      color: "#374151",
+                    }
+              }
+            >
+              My Equipment
+            </NavLink>
+          </li>
+          {/* <li>
+            <NavLink
+              className="navlink ml-1"
+              to="/myProfile"
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      fontWeight: "600",
+                      color: "#fff",
+                      background:
+                        "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    }
+                  : {
+                      fontWeight: "400",
+                      backgroundColor: "#ffffffa0",
+                      color: "#374151",
+                    }
+              }
+            >
+              My profile
+            </NavLink>
+          </li> */}
+        </>
+      )}
 
       <li>
         <NavLink
           className="navlink ml-1"
-          to="/myProfile"
+          to="/policies"
           style={({ isActive }) =>
             isActive
               ? {
@@ -156,7 +183,7 @@ const Header = () => {
                 }
           }
         >
-          My profile
+          Privacy Policy
         </NavLink>
       </li>
     </>
@@ -205,24 +232,26 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <div className="mr-4 mt-2">
-            <Link
-              to="/addCart"
-              className="p-1  cursor-pointer rounded-full text-xl "
-            >
-              <div className="relative">
-                <span className=" absolute translate-x-2 -top-[1.1rem] text-base ml-1 badge ">
-                  {!loaging ? filteredEquipment.length : "0"}
-                </span>
-                <div className="text-3xl">
-                  <IoMdCart />
+            {
+              <Link
+                to="/addCart"
+                className="p-1  cursor-pointer rounded-full text-xl "
+              >
+                <div className="relative">
+                  <span className=" absolute translate-x-2 -top-[1.1rem] text-base ml-1 badge ">
+                    {!loaging ? filteredEquipment.length : "0"}
+                  </span>
+                  <div className="text-3xl">
+                    <IoMdCart />
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            }
           </div>
           <div className=" mr-2">
             {user && user?.email ? (
               <div className="relative h-full hover:scale-90 group w-fit">
-                <Link to="/">
+                <Link to="/myProfile">
                   <img
                     src={user?.photoURL}
                     alt="User"
@@ -234,16 +263,14 @@ const Header = () => {
                 </div>
               </div>
             ) : (
-              <div className="text-[2.7rem] text-[#faa2a0]">
-                <FaCircleUser></FaCircleUser>
-              </div>
+              ""
             )}
           </div>
 
           {user && user?.email ? (
             <button
               onClick={logOut}
-              className="btn btn-sm h-10 bg-gradient-to-r from-[#faa2a0]  to-[#faa1a092] text-gray-600 font-bold  "
+              className="btn btn-sm h-10 bg-gradient-to-r from-[#faa2a0]  to-[#faa1a092] text-gray-600 font-bold mr-6 "
             >
               Log-Out
             </button>

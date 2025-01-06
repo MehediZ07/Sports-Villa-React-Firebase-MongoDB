@@ -1,21 +1,26 @@
 import React, { useContext } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import ReactStars from "react-rating-stars-component";
 import { IoMdCart } from "react-icons/io";
 import { RiArrowGoBackLine } from "react-icons/ri";
 export default function DetailsEquipment() {
+  const location = useLocation();
   const equipment = useLoaderData();
   const { user } = useContext(AuthContext);
   const photo = equipment.photo;
   const itemName = equipment.itemName;
   const price = equipment.price;
-  const username = user.displayName;
-  const email = user.email;
+  const username = user?.displayName;
+  const email = user?.email;
+  const navigate = useNavigate();
 
-  const handleAddCart = (e) => {
-    e.preventDefault();
+  const handleAddCart = () => {
+    if (!user) {
+      navigate("/signin", { state: { from: location.pathname } });
+      return;
+    }
     const addcart = {
       photo,
       itemName,
@@ -42,7 +47,7 @@ export default function DetailsEquipment() {
         }
       });
   };
-  const navigate = useNavigate();
+
   const handleGoBack = () => {
     navigate(-1);
   };

@@ -68,7 +68,7 @@ const SignIn = () => {
           .then((res) => res.json())
           .then((data) => {});
 
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state?.from || "/");
       })
       .catch((err) => {
         setError({ ...error, login: "Envalid Email Password!" });
