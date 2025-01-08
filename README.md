@@ -52,8 +52,6 @@ Sports Villa Website designed Sports Equipment Online Store. This is a sports ac
 
 ![Home Page](./src/assets/Home-Light.jpeg)
 
-![Home Page](./src/assets/Home-Dark.jpeg)
-
 ![All Equipments](./src/assets/All%20Equipments.jpeg)
 
 ![Add Equipment](./src/assets/Add%20Equipment.jpeg)
