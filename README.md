@@ -36,9 +36,18 @@ Sports Villa Website designed Sports Equipment Online Store. This is a sports ac
 14. **React Awesome Reveal**
 15. **React Tooltip**
 
-## Requirement Document
+## Clone the Repository
+**git clone https://github.com/MehediZ07/Sports-Villa-React-Firebase-MongoDB.git**
 
-[Requirement Document Link](https://docs.google.com/document/d/1zl97jEDUtdadOGwHSV_fP1gShCwCxwk6DDhQbEpcfHY/edit?tab=t.0).
+## Install Dependencies
+**npm install**
+
+## Set Up Firebase Configuration
+**Create a .env file and add your Firebase API keys.**
+
+## Start the Development Server
+**npm run dev**
+
 
 ## Live Link Firebase deploy
 
